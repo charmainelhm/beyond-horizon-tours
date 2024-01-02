@@ -15,10 +15,22 @@
     color: var(--color-indigo);
   }
 
-  h1,
   h2,
   h3,
   h4 {
     font-family: "Bellefair", serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply uppercase;
+  }
+
+  p {
+    @apply text-sm sm:text-base lg:text-lg;
   }
 }
