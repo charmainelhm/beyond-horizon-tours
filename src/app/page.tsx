@@ -1,7 +1,4 @@
 import Link from "next/link";
-import bgMobile from "@/assets/home/background-home-mobile.jpg";
-import bgTablet from "@/assets/home/background-home-tablet.jpg";
-import bgDesktop from "@/assets/home/background-home-desktop.jpg";
 import Image from "next/image";
 
 export default function Home() {
@@ -31,26 +28,26 @@ export default function Home() {
           Explore
         </Link>
       </div>
-      <div>
+      {/* <div>
         <Image
-          src={bgMobile}
+          src="/assets/home/background-home-mobile.jpg"
           alt=""
           layout="fill"
           className="sm:hidden object-cover"
         />
         <Image
-          src={bgTablet}
+          src="/assets/home/background-home-tablet.jpg"
           alt=""
           layout="fill"
           className="sm:max-lg:block object-cover"
         />
         <Image
-          src={bgDesktop}
+          src="/assets/home/background-home-desktop.jpg"
           alt=""
           layout="fill"
           className="hidden lg:block object-cover"
         />
-      </div>
+      </div> */}
     </>
   );
 }
