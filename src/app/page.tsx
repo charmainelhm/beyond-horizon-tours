@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen max-lg:text-center relative pt-28 pb-12 container flex flex-col lg:flex-row items-center lg:items-end lg:justify-between">
-        <div className="relative z-20">
+      <div className="min-h-screen max-lg:text-center relative z-20 pt-28 pb-12 container flex flex-col lg:flex-row items-center lg:items-end lg:justify-between">
+        <div>
           <h1>
             <span className="tracking-widest sm:text-xl lg:text-2xl">
               So, You Want to Travel to{" "}
@@ -28,7 +28,7 @@ export default function Home() {
           Explore
         </Link>
       </div>
-      {/* <div>
+      <div>
         <Image
           src="/assets/home/background-home-mobile.jpg"
           alt=""
@@ -47,7 +47,7 @@ export default function Home() {
           layout="fill"
           className="hidden lg:block object-cover"
         />
-      </div> */}
+      </div>
     </>
   );
 }

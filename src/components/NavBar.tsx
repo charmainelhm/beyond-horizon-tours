@@ -40,7 +40,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="fixed inset-x-0 z-30 max-sm:w-11/12 max-sm:mx-auto flex justify-between items-center sm:pl-10 lg:pl-14 max-sm:pt-5 lg:pt-10">
+    <div className="fixed z-30 inset-x-0 max-sm:w-11/12 max-sm:mx-auto flex justify-between items-center sm:pl-10 lg:pl-14 max-sm:pt-5 lg:pt-10">
       <Link className="relative aspect-square h-10 sm:h-12" href="/">
         <Image src="/assets/shared/logo.svg" alt="Space Tourism Logo" fill />
       </Link>
@@ -52,7 +52,7 @@ const NavBar = () => {
         ref={navMenu}
         className={`transition ${
           isMenuOpen ? "max-sm:translate-x-0" : "max-sm:translate-x-full"
-        } max-sm:fixed max-sm:right-0 max-sm:top-0 max-sm:w-3/4 lg:w-3/5 max-sm:h-screen max-sm:overflow-y-scroll bg-white/10 backdrop-blur-lg px-8 max-sm:py-8 sm:px-12 lg:px-[min(5vw,7rem)]`}
+        } max-sm:fixed z-50 max-sm:right-0 max-sm:top-0 max-sm:w-3/4 lg:w-3/5 max-sm:h-screen max-sm:overflow-y-scroll bg-white/10 backdrop-blur-lg px-8 max-sm:py-8 sm:px-12 lg:px-[min(5vw,7rem)]`}
       >
         <button
           className="flex ml-auto sm:hidden mb-16"
