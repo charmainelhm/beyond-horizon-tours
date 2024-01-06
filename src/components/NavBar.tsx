@@ -44,7 +44,7 @@ const NavBar = () => {
       <Link className="relative aspect-square h-10 sm:h-12" href="/">
         <Image src="/assets/shared/logo.svg" alt="Space Tourism Logo" fill />
       </Link>
-      <div className="hidden lg:block relative z-40 grow h-px bg-white/20 translate-x-8"></div>
+      <div className="hidden lg:block relative z-[60] grow h-px bg-white/20 translate-x-8"></div>
       <button className="sm:hidden" onClick={() => setIsMenuOpen(true)}>
         <Image src={hamburgerIcon} alt="Open menu" />
       </button>
@@ -62,14 +62,14 @@ const NavBar = () => {
         >
           <Image src={closeIcon} alt="Close menu" />
         </button>
-        <ul className="flex max-sm:flex-col gap-y-8 sm:gap-x-9 lg:gap-x-12">
+        <ul className="flex max-sm:flex-col gap-y-8 sm:gap-x-[min(4.6vw,2.25rem)] lg:gap-x-12">
           {navItems.map((navItem, index) => (
             <li
               key={navItem.name}
               className={`sm:py-10 sm:border-b-[0.1875rem] ${
                 currentPage === navItem.path
                   ? "border-white"
-                  : "border-transparent hover:border-white/50 focus:border-white/50"
+                  : "border-transparent hover:border-white/50 focus-within:border-white/50"
               } `}
             >
               <Link
