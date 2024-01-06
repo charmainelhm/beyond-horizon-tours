@@ -8,9 +8,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row items-center lg:items-end lg:justify-between gap-y-20 sm:gap-y-36">
           <div>
             <h1>
-              <span className="tracking-widest sm:text-xl lg:text-2xl">
-                So, You Want to Travel to{" "}
-              </span>
+              So, You Want to Travel to
               <span className="block text-white sm:my-6 font-bellefair text-7xl sm:text-9xl lg:text-10xl leading-normal">
                 Space
               </span>
