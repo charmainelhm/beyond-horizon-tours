@@ -13,7 +13,10 @@ const config: Config = {
     },
     extend: {
       colors: {
-        charcoal: "var(--color-charcoal)",
+        charcoal: {
+          900: "var(--color-charcoal-900)",
+          700: "var(--color-charcoal-700)",
+        },
         indigo: "var(--color-indigo)",
       },
       fontFamily: {
@@ -21,6 +24,11 @@ const config: Config = {
         barlow: ["Barlow Condensed", "sans-serif"],
       },
       fontSize: {
+        "2.5xl": ["1.75rem", { lineHeight: "1.2" }],
+        "3.5xl": ["2rem", { lineHeight: "1.2" }],
+        "4.5xl": ["2.5rem", { lineHeight: "1.2" }],
+        "5.5xl": ["3.5rem", { lineHeight: "1.2" }],
+        "7.5xl": ["5rem", { lineHeight: "1.2" }],
         "10xl": "9rem",
       },
     },

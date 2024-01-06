@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 :root {
-  --color-charcoal: #0b0d17;
+  --color-charcoal-900: #0b0d17;
+  --color-charcoal-700: #383b4b;
   --color-indigo: #d0d6f9;
   --spacing-above-content: 5.5rem;
 }
@@ -24,7 +25,7 @@
 @layer base {
   body {
     font-family: "Barlow Condensed", sans-serif;
-    background-color: var(--color-charcoal);
+    background-color: var(--color-charcoal-900);
     color: var(--color-indigo);
   }
 
@@ -44,10 +45,14 @@
   }
 
   h1 {
-    @apply tracking-widest sm:text-xl lg:text-2xl;
+    @apply tracking-widest sm:text-xl lg:text-2.5xl;
   }
 
   p {
     @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  hr {
+    @apply border-charcoal-700;
   }
 }
