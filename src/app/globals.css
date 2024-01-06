@@ -7,18 +7,21 @@
   --color-charcoal-900: #0b0d17;
   --color-charcoal-700: #383b4b;
   --color-indigo: #d0d6f9;
-  --spacing-above-content: 5.5rem;
+  --content-top-padding: 5.5rem;
+  --content-side-padding: 6.4vw;
 }
 
 @media screen and (min-width: 640px) {
   :root {
-    --spacing-above-content: 8.5rem;
+    --content-top-padding: 8.5rem;
+    --content-side-padding: 12.5vw;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   :root {
-    --spacing-above-content: 13rem;
+    --content-top-padding: 13rem;
+    --content-side-padding: 10vw;
   }
 }
 
