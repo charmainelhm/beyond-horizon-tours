@@ -4,22 +4,28 @@ import React, { useState } from "react";
 import content from "@/data/content.json";
 import Image from "next/image";
 import PageWrapper from "@/components/PageWrapper";
+import Carousel from "@/components/Carousel";
 
 const DestinationPage = () => {
   const { destinations } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselImages = destinations.map((destination) => (
+    <Image src={destination.images.webp} alt="" fill className="object-cover" />
+  ));
+
   return (
     <PageWrapper pageName="destination">
       <div className="2xl:container pt-[var(--content-top-padding)] pb-14 lg:pb-28 lg:px-[var(--content-side-padding)] max-lg:text-center">
         <PageHeader index={2}>Pick Your Destination</PageHeader>
         <div className="mt-8 sm:mt-14 lg:mt-16 lg:flex items-center">
           <div className="relative w-3/5 sm:w-2/5 mx-auto aspect-square">
-            <Image
-              src={destinations[currentIndex].images.webp}
-              alt=""
-              fill
-              className="object-cover"
-            />
+            <Carousel
+              content={carouselImages}
+              scrollTo={currentIndex}
+              setCurrentIndex={setCurrentIndex}
+              className="h-full"
+              slidesGap="lg"
+            ></Carousel>
           </div>
           <div className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5">
             <div className="flex justify-center lg:justify-start gap-x-6 sm:gap-x-8">

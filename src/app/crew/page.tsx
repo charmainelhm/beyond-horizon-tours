@@ -1,4 +1,5 @@
 "use client";
+import Carousel from "@/components/Carousel";
 import PageHeader from "@/components/PageHeader";
 import PageWrapper from "@/components/PageWrapper";
 import content from "@/data/content.json";
@@ -8,6 +9,9 @@ import React, { useState } from "react";
 const CrewPage = () => {
   const { crew } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselImages = crew.map((member) => (
+    <Image src={member.images.webp} alt="" fill className="object-contain" />
+  ));
 
   return (
     <PageWrapper pageName="crew">
@@ -34,12 +38,13 @@ const CrewPage = () => {
           </div>
           <div className="lg:w-1/2">
             <div className="h-56 sm:h-[34rem] lg:h-full mx-auto relative">
-              <Image
-                src={crew[currentIndex].images.webp}
-                alt=""
-                fill
-                className="object-contain"
-              />
+              <Carousel
+                content={carouselImages}
+                scrollTo={currentIndex}
+                setCurrentIndex={setCurrentIndex}
+                className="h-full"
+                slidesGap="lg"
+              ></Carousel>
             </div>
             <hr className="sm:hidden"></hr>
           </div>
