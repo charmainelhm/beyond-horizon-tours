@@ -13,7 +13,7 @@ const CrewPage = () => {
     <PageWrapper pageName="crew">
       <div className="flex flex-col max-lg:text-center 2xl:container min-h-screen pt-[var(--content-top-padding)] lg:px-[var(--content-side-padding)] max-sm:pb-24">
         <PageHeader index={2}>Meet your crew</PageHeader>
-        <div className="max-sm:mt-8 max-lg:mt-14 max-lg: lg:grow flex flex-col-reverse sm:flex-col lg:flex-row">
+        <div className="max-sm:mt-8 max-lg:mt-14 lg:grow flex flex-col-reverse sm:flex-col lg:flex-row">
           <div className="lg:w-1/2 lg:pt-[min(10vw,9.6rem)] flex flex-col lg:pb-[min(6.5vw,5.8rem)] max-lg:px-[var(--content-side-padding)]">
             <h3 className="text-white/50 mb-2">{crew[currentIndex].role}</h3>
             <h2 className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl">
