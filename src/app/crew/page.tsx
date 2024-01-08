@@ -10,7 +10,13 @@ const CrewPage = () => {
   const { crew } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselImages = crew.map((member) => (
-    <Image src={member.images.webp} alt="" fill className="object-contain" />
+    <Image
+      key={`image-${member.name}`}
+      src={member.images.webp}
+      alt=""
+      fill
+      className="object-contain"
+    />
   ));
 
   return (

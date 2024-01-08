@@ -10,7 +10,13 @@ const DestinationPage = () => {
   const { destinations } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselImages = destinations.map((destination) => (
-    <Image src={destination.images.webp} alt="" fill className="object-cover" />
+    <Image
+      key={`destination-${destination.name}`}
+      src={destination.images.webp}
+      alt=""
+      fill
+      className="object-cover"
+    />
   ));
 
   return (
