@@ -15,7 +15,7 @@ const CrewPage = () => {
         <PageHeader className="order-first sm:text-start" index={2}>
           Meet your crew
         </PageHeader>
-        <div className="max-sm:order-last max:lg:px-[var(--content-side-padding)]">
+        <div className="max-sm:order-last max-lg:px-[var(--content-side-padding)]">
           <h3 className="text-white/50 mb-2">{crew[currentIndex].role}</h3>
           <h2 className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl">
             {crew[currentIndex].name}
@@ -33,7 +33,7 @@ const CrewPage = () => {
             ></button>
           ))}
         </div>
-        <div className="col-start-2 row-span-full">
+        <div className="lg:col-start-2 lg:row-span-full">
           <div className="h-56 sm:h-[34rem] lg:h-full mx-auto relative">
             <Image
               src={crew[currentIndex].images.webp}

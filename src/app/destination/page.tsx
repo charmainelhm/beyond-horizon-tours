@@ -12,9 +12,7 @@ const DestinationPage = () => {
     <PageWrapper pageName="destination">
       <div className="2xl:container pt-[var(--content-top-padding)] pb-14 lg:pb-28 lg:px-[var(--content-side-padding)] max-lg:text-center lg:flex items-end">
         <div className="lg:w-3/5">
-          <PageHeader className="sm:text-start" index={2}>
-            Pick Your Destination
-          </PageHeader>
+          <PageHeader index={2}>Pick Your Destination</PageHeader>
           <div className="relative w-3/5 sm:w-2/5 lg:w-3/5 mx-auto aspect-square my-8 sm:my-16 lg:mt-16 lg:mb-0">
             <Image
               src={destinations[currentIndex].images.webp}
@@ -29,7 +27,7 @@ const DestinationPage = () => {
             {destinations.map((destination, index) => (
               <button
                 key={destination.name}
-                className={`border-b-[3px] uppercase max-sm:text-sm tracking-widest ${
+                className={`border-b-[3px] font-barlowCondensed uppercase max-sm:text-sm tracking-widest ${
                   index === currentIndex
                     ? "text-white border-white"
                     : "border-transparent hover:border-white/50 focus:border-white/50"
@@ -49,7 +47,7 @@ const DestinationPage = () => {
           <hr className="my-8 sm:mt-12 sm:mb-7"></hr>
           <div className="flex max-sm:flex-col justify-center lg:justify-start gap-y-8 gap-x-16">
             <div>
-              <h3 className="font-barlow tracking-widest text-sm pb-3">
+              <h3 className="font-barlowCondensed tracking-widest text-sm pb-3">
                 Avg. Distance
               </h3>
               <p className="font-bellefair text-2.5xl text-white uppercase">
@@ -57,7 +55,7 @@ const DestinationPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="font-barlow tracking-widest text-sm pb-3">
+              <h3 className="font-barlowCondensed tracking-widest text-sm pb-3">
                 Est. Travel Time
               </h3>
               <p className="font-bellefair text-2.5xl text-white uppercase">

@@ -74,7 +74,7 @@ const NavBar = () => {
             >
               <Link
                 href={navItem.path}
-                className="inline-block sm:py-10 text-white uppercase tracking-[0.15em] space-x-3"
+                className="inline-block sm:py-10 text-white font-barlowCondensed uppercase tracking-[0.15em] space-x-3"
                 onClick={() => {
                   setIsMenuOpen(false);
                 }}
