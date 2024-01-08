@@ -4,14 +4,13 @@ import PageWrapper from "@/components/PageWrapper";
 import React, { useState } from "react";
 import content from "@/data/content.json";
 import Image from "next/image";
-import DestinationPage from "../destination/page";
 import Carousel from "@/components/Carousel";
 
 const TechnologyPage = () => {
   const { technology } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselImages = technology.map((tech) => (
-    <>
+  const carouselImages = technology.map((tech, index) => (
+    <React.Fragment key={index}>
       <Image className="lg:hidden" src={tech.images.landscape} alt="" fill />
       <Image
         className="hidden lg:block"
@@ -19,7 +18,7 @@ const TechnologyPage = () => {
         alt=""
         fill
       />
-    </>
+    </React.Fragment>
   ));
 
   return (
@@ -35,23 +34,12 @@ const TechnologyPage = () => {
               className="h-full"
               slidesGap="sm"
             />
-            {/* <Image
-              className="lg:hidden"
-              src={technology[currentIndex].images.landscape}
-              alt=""
-              fill
-            />
-            <Image
-              className="hidden lg:block"
-              src={technology[currentIndex].images.portrait}
-              alt=""
-              fill
-            /> */}
           </div>
           <div className="lg:w-[50%] flex flex-col lg:flex-row gap-y-8 lg:gap-x-[min(6%,5rem)]">
             <div className="flex lg:flex-col max-lg:justify-center gap-4 lg:gap-8">
               {technology.map((_, index) => (
                 <button
+                  key={`tech-${index}`}
                   className={`w-[2.5em] sm:text-2xl lg:text-3.5xl aspect-square rounded-full border font-bellefair ${
                     index === currentIndex
                       ? "bg-white text-charcoal-900 border-white"
