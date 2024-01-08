@@ -11,22 +11,18 @@ const CrewPage = () => {
 
   return (
     <PageWrapper pageName="crew">
-      <div className="grid lg:grid-cols-2 gap-y-8 max-lg:text-center 2xl:container pt-[var(--content-top-padding)] lg:px-[var(--content-side-padding)] max-sm:pb-24">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-[repeat(3,auto)] gap-y-8 lg:gap-y-28 max-lg:text-center 2xl:container min-h-screen pt-[var(--content-top-padding)] lg:px-[var(--content-side-padding)] max-sm:pb-24">
         <PageHeader className="order-first sm:text-start" index={2}>
           Meet your crew
         </PageHeader>
-        <div className="sm:order-last">
-          <div className="h-56 sm:h-[34rem] mx-auto relative">
-            <Image
-              src={crew[currentIndex].images.webp}
-              alt=""
-              fill
-              className="object-contain"
-            />
-          </div>
-          <hr className="sm:hidden"></hr>
+        <div className="max-sm:order-last max:lg:px-[var(--content-side-padding)]">
+          <h3 className="text-white/50 mb-2">{crew[currentIndex].role}</h3>
+          <h2 className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl">
+            {crew[currentIndex].name}
+          </h2>
+          <p className="max-w-md max-lg:mx-auto">{crew[currentIndex].bio}</p>
         </div>
-        <div className="sm:order-2 max-lg:justify-center flex gap-x-3">
+        <div className="max-sm:order-2 max-lg:justify-center flex gap-x-3">
           {crew.map((member, index) => (
             <button
               key={member.name}
@@ -37,12 +33,16 @@ const CrewPage = () => {
             ></button>
           ))}
         </div>
-        <div className="sm:order-1 px-[var(--content-side-padding)]">
-          <h3 className="text-white/50 mb-2">{crew[currentIndex].role}</h3>
-          <h2 className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl">
-            {crew[currentIndex].name}
-          </h2>
-          <p className="max-w-md max-lg:mx-auto">{crew[currentIndex].bio}</p>
+        <div className="col-start-2 row-span-full">
+          <div className="h-56 sm:h-[34rem] lg:h-full mx-auto relative">
+            <Image
+              src={crew[currentIndex].images.webp}
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
+          <hr className="sm:hidden"></hr>
         </div>
       </div>
     </PageWrapper>
