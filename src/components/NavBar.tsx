@@ -66,7 +66,7 @@ const NavBar = () => {
           {navItems.map((navItem, index) => (
             <li
               key={navItem.name}
-              className={`sm:py-10 sm:border-b-[0.1875rem] ${
+              className={`sm:border-b-[0.1875rem] ${
                 currentPage === navItem.path
                   ? "border-white"
                   : "border-transparent hover:border-white/50 focus-within:border-white/50"
@@ -74,7 +74,7 @@ const NavBar = () => {
             >
               <Link
                 href={navItem.path}
-                className="text-white uppercase tracking-[0.15em] space-x-3"
+                className="inline-block sm:py-10 text-white uppercase tracking-[0.15em] space-x-3"
                 onClick={() => {
                   setIsMenuOpen(false);
                 }}

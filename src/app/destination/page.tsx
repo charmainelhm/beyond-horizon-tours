@@ -10,7 +10,7 @@ const DestinationPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
     <PageWrapper pageName="destination">
-      <div className="2xl:container pt-[var(--content-top-padding)] pb-14 lg:pb-28 lg:px-[var(--content-top-padding)] max-lg:text-center lg:flex items-end">
+      <div className="2xl:container pt-[var(--content-top-padding)] pb-14 lg:pb-28 lg:px-[var(--content-side-padding)] max-lg:text-center lg:flex items-end">
         <div className="lg:w-3/5">
           <PageHeader className="sm:text-start" index={2}>
             Pick Your Destination
