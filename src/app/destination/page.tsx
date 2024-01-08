@@ -5,6 +5,7 @@ import content from "@/data/content.json";
 import Image from "next/image";
 import PageWrapper from "@/components/PageWrapper";
 import Carousel from "@/components/Carousel";
+import { motion } from "framer-motion";
 
 const DestinationPage = () => {
   const { destinations } = content;
@@ -33,7 +34,10 @@ const DestinationPage = () => {
               slidesGap="lg"
             ></Carousel>
           </div>
-          <div className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5">
+          <motion.div
+            layoutId="desination-info"
+            className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5"
+          >
             <div className="flex justify-center lg:justify-start gap-x-6 sm:gap-x-8">
               {destinations.map((destination, index) => (
                 <button
@@ -74,7 +78,7 @@ const DestinationPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </PageWrapper>

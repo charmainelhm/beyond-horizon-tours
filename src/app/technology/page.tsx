@@ -44,7 +44,7 @@ const TechnologyPage = () => {
                     index === currentIndex
                       ? "bg-white text-charcoal-900 border-white"
                       : "text-white border-white/25"
-                  } hover:border-white`}
+                  } hover:border-white focus:border-white`}
                   onClick={() => setCurrentIndex(index)}
                 >
                   {index + 1}

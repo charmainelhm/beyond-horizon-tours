@@ -34,7 +34,7 @@ const CrewPage = () => {
               {crew.map((member, index) => (
                 <button
                   key={member.name}
-                  className={`h-2.5 aspect-square rounded-full bg-white hover:opacity-50 focus:opacity-50 ${
+                  className={`h-2.5 aspect-square rounded-full bg-white hover:opacity-50 ${
                     currentIndex === index ? "opacity-100" : "opacity-30"
                   }`}
                   onClick={() => setCurrentIndex(index)}

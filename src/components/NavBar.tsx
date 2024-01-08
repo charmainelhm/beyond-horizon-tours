@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import closeIcon from "../../public/assets/shared/icon-close.svg";
 import hamburgerIcon from "../../public/assets/shared/icon-hamburger.svg";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const navItems = [
@@ -64,17 +65,16 @@ const NavBar = () => {
         </button>
         <ul className="flex max-sm:flex-col gap-y-8 sm:gap-x-[min(4.6vw,2.25rem)] lg:gap-x-12">
           {navItems.map((navItem, index) => (
-            <li
-              key={navItem.name}
-              className={`sm:border-b-[0.1875rem] ${
-                currentPage === navItem.path
-                  ? "border-white"
-                  : "border-transparent hover:border-white/50 focus-within:border-white/50"
-              } `}
-            >
+            <li key={navItem.name} className={`relative`}>
+              {currentPage === navItem.path && (
+                <motion.div
+                  layoutId="active-navItem"
+                  className="hidden sm:block absolute inset-0 sm:border-b-[0.1875rem] border-white"
+                ></motion.div>
+              )}
               <Link
                 href={navItem.path}
-                className="inline-block sm:py-10 text-white font-barlowCondensed uppercase tracking-[0.15em] space-x-3"
+                className="relative inline-block sm:border-b-[0.1875rem] border-transparent hover:border-white/50 focus-within:border-white/50 sm:py-10 text-white font-barlowCondensed uppercase tracking-[0.15em] space-x-3"
                 onClick={() => {
                   setIsMenuOpen(false);
                 }}
