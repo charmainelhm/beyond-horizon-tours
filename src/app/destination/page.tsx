@@ -2,20 +2,11 @@
 import PageHeader from "@/components/PageHeader";
 import React, { useState } from "react";
 import content from "@/data/content.json";
+import animationAttributes from "@/data/contentAnimationAttributes.json";
 import Image from "next/image";
 import PageWrapper from "@/components/PageWrapper";
 import Carousel from "@/components/Carousel";
 import { motion } from "framer-motion";
-
-export const animationAttributes = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: {
-    duration: 0.8,
-    ease: "easeOut",
-  },
-};
 
 const DestinationPage = () => {
   const { destinations } = content;

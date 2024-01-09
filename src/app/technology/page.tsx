@@ -6,7 +6,7 @@ import content from "@/data/content.json";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
 import { motion } from "framer-motion";
-import { animationAttributes } from "../destination/page";
+import animationAttributes from "@/data/contentAnimationAttributes.json";
 
 const TechnologyPage = () => {
   const { technology } = content;
