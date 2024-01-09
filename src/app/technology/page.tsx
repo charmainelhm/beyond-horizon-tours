@@ -22,46 +22,47 @@ const TechnologyPage = () => {
   ));
 
   return (
-    <PageWrapper pageName="technology">
-      <div className="2xl:container gap-y-8 min-h-screen pt-[var(--content-top-padding)] lg:pl-[var(--content-side-padding)] max-lg:text-center">
-        <PageHeader index={3}>SPACE LAUNCH 101</PageHeader>
-        <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:justify-between">
-          <div className="relative aspect-[21/9] lg:w-[40%] lg:aspect-[9/10] max-lg:my-8">
-            <Carousel
-              content={carouselImages}
-              scrollTo={currentIndex}
-              setCurrentIndex={setCurrentIndex}
-              className="h-full"
-              slidesGap="sm"
-            />
+    <PageWrapper
+      pageName="technology"
+      className="pt-[var(--content-top-padding)] lg:pl-[var(--content-side-padding)]"
+    >
+      <PageHeader index={3}>SPACE LAUNCH 101</PageHeader>
+      <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:justify-between">
+        <div className="relative aspect-[21/9] lg:w-[40%] lg:aspect-[9/10] max-lg:my-8">
+          <Carousel
+            content={carouselImages}
+            scrollTo={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            className="h-full"
+            slidesGap="sm"
+          />
+        </div>
+        <div className="lg:w-[50%] flex flex-col lg:flex-row gap-y-8 lg:gap-x-[min(6%,5rem)]">
+          <div className="flex lg:flex-col max-lg:justify-center gap-4 lg:gap-8">
+            {technology.map((_, index) => (
+              <button
+                key={`tech-${index}`}
+                className={`w-[2.5em] sm:text-2xl lg:text-3.5xl aspect-square rounded-full border font-bellefair ${
+                  index === currentIndex
+                    ? "bg-white text-charcoal-900 border-white"
+                    : "text-white border-white/25"
+                } hover:border-white focus:border-white`}
+                onClick={() => setCurrentIndex(index)}
+              >
+                {index + 1}
+              </button>
+            ))}
           </div>
-          <div className="lg:w-[50%] flex flex-col lg:flex-row gap-y-8 lg:gap-x-[min(6%,5rem)]">
-            <div className="flex lg:flex-col max-lg:justify-center gap-4 lg:gap-8">
-              {technology.map((_, index) => (
-                <button
-                  key={`tech-${index}`}
-                  className={`w-[2.5em] sm:text-2xl lg:text-3.5xl aspect-square rounded-full border font-bellefair ${
-                    index === currentIndex
-                      ? "bg-white text-charcoal-900 border-white"
-                      : "text-white border-white/25"
-                  } hover:border-white focus:border-white`}
-                  onClick={() => setCurrentIndex(index)}
-                >
-                  {index + 1}
-                </button>
-              ))}
-            </div>
-            <div className="max-lg:px-[var(--content-side-padding)]">
-              <h3 className="font-barlowCondensed tracking-widest text-sm mb-2">
-                THE TERMINOLOGY…
-              </h3>
-              <h2 className="text-white text-2xl sm:text-4.5xl lg:text-5.5xl mb-4">
-                {technology[currentIndex].name}
-              </h2>
-              <p className="max-w-md mx-auto">
-                {technology[currentIndex].description}
-              </p>
-            </div>
+          <div className="max-lg:px-[var(--content-side-padding)]">
+            <h3 className="font-barlowCondensed tracking-widest text-sm mb-2">
+              THE TERMINOLOGY…
+            </h3>
+            <h2 className="text-white text-2xl sm:text-4.5xl lg:text-5.5xl mb-4">
+              {technology[currentIndex].name}
+            </h2>
+            <p className="max-w-md mx-auto">
+              {technology[currentIndex].description}
+            </p>
           </div>
         </div>
       </div>

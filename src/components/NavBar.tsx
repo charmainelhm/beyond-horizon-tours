@@ -41,7 +41,12 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="fixed z-30 inset-x-0 max-sm:w-11/12 max-sm:mx-auto flex justify-between items-center sm:pl-10 lg:pl-14 max-sm:pt-5 lg:pt-10">
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 90, damping: 20 }}
+      className="fixed z-30 inset-x-0 max-sm:w-11/12 max-sm:mx-auto flex justify-between items-center sm:pl-10 lg:pl-14 max-sm:pt-5 lg:pt-10"
+    >
       <Link className="relative aspect-square h-10 sm:h-12" href="/">
         <Image src="/assets/shared/logo.svg" alt="Space Tourism Logo" fill />
       </Link>
@@ -88,7 +93,7 @@ const NavBar = () => {
           ))}
         </ul>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
