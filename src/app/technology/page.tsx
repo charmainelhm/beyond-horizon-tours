@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import content from "@/data/content.json";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
+import { motion } from "framer-motion";
+import { animationAttributes } from "../destination/page";
 
 const TechnologyPage = () => {
   const { technology } = content;
@@ -42,14 +44,20 @@ const TechnologyPage = () => {
             {technology.map((_, index) => (
               <button
                 key={`tech-${index}`}
-                className={`w-[2.5em] sm:text-2xl lg:text-3.5xl aspect-square rounded-full border font-bellefair ${
+                className={`transition relative w-[2.5em] sm:text-2xl lg:text-3.5xl aspect-square rounded-full border font-bellefair ${
                   index === currentIndex
-                    ? "bg-white text-charcoal-900 border-white"
+                    ? "text-charcoal-900 border-white"
                     : "text-white border-white/25"
                 } hover:border-white focus:border-white`}
                 onClick={() => setCurrentIndex(index)}
               >
-                {index + 1}
+                {index === currentIndex && (
+                  <motion.span
+                    layoutId="activeButton"
+                    className="absolute inset-0 rounded-full bg-white"
+                  ></motion.span>
+                )}
+                <span className="relative">{index + 1}</span>
               </button>
             ))}
           </div>
@@ -57,12 +65,20 @@ const TechnologyPage = () => {
             <h3 className="font-barlowCondensed tracking-widest text-sm mb-2">
               THE TERMINOLOGY…
             </h3>
-            <h2 className="text-white text-2xl sm:text-4.5xl lg:text-5.5xl mb-4">
+            <motion.h2
+              key={`termName-${currentIndex}`}
+              {...animationAttributes}
+              className="text-white text-2xl sm:text-4.5xl lg:text-5.5xl mb-4"
+            >
               {technology[currentIndex].name}
-            </h2>
-            <p className="max-w-md mx-auto">
+            </motion.h2>
+            <motion.p
+              key={`termDesc-${currentIndex}`}
+              {...animationAttributes}
+              className="max-w-md mx-auto"
+            >
               {technology[currentIndex].description}
-            </p>
+            </motion.p>
           </div>
         </div>
       </div>

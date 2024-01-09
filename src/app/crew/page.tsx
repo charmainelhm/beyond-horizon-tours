@@ -5,6 +5,8 @@ import PageWrapper from "@/components/PageWrapper";
 import content from "@/data/content.json";
 import Image from "next/image";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { animationAttributes } from "../destination/page";
 
 const CrewPage = () => {
   const { crew } = content;
@@ -27,11 +29,27 @@ const CrewPage = () => {
       <PageHeader index={2}>Meet your crew</PageHeader>
       <div className="max-sm:mt-8 max-lg:mt-14 lg:grow flex flex-col-reverse sm:flex-col lg:flex-row">
         <div className="lg:w-1/2 lg:pt-[min(10vw,9.6rem)] flex flex-col lg:pb-[min(6.5vw,5.8rem)] max-lg:px-[var(--content-side-padding)]">
-          <h3 className="text-white/50 mb-2">{crew[currentIndex].role}</h3>
-          <h2 className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl">
+          <motion.h3
+            key={`role-${currentIndex}`}
+            {...animationAttributes}
+            className="text-white/50 mb-2"
+          >
+            {crew[currentIndex].role}
+          </motion.h3>
+          <motion.h2
+            key={`crewName-${currentIndex}`}
+            {...animationAttributes}
+            className="text-white mb-6 text-2xl sm:text-4.5xl lg:text-5.5xl"
+          >
             {crew[currentIndex].name}
-          </h2>
-          <p className="max-w-md max-lg:mx-auto">{crew[currentIndex].bio}</p>
+          </motion.h2>
+          <motion.p
+            key={`bio-${currentIndex}`}
+            {...animationAttributes}
+            className="max-w-md max-lg:mx-auto"
+          >
+            {crew[currentIndex].bio}
+          </motion.p>
           <div className="max-sm:order-first max-lg:my-8 lg:mt-auto max-lg:justify-center flex gap-x-3">
             {crew.map((member, index) => (
               <button

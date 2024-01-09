@@ -7,9 +7,20 @@ import PageWrapper from "@/components/PageWrapper";
 import Carousel from "@/components/Carousel";
 import { motion } from "framer-motion";
 
+export const animationAttributes = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: {
+    duration: 0.8,
+    ease: "easeOut",
+  },
+};
+
 const DestinationPage = () => {
   const { destinations } = content;
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const carouselImages = destinations.map((destination) => (
     <Image
       key={`destination-${destination.name}`}
@@ -26,11 +37,7 @@ const DestinationPage = () => {
       className="pt-[var(--content-top-padding)] pb-14 lg:pb-28 lg:px-[var(--content-side-padding)]"
     >
       <PageHeader index={2}>Pick Your Destination</PageHeader>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="mt-8 sm:mt-14 lg:mt-16 lg:flex items-center"
-      >
+      <div className="mt-8 sm:mt-14 lg:mt-16 lg:flex items-center">
         <div className="relative w-3/5 sm:w-2/5 mx-auto aspect-square">
           <Carousel
             content={carouselImages}
@@ -40,10 +47,7 @@ const DestinationPage = () => {
             slidesGap="lg"
           ></Carousel>
         </div>
-        <motion.div
-          layoutId="desination-info"
-          className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5"
-        >
+        <div className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5">
           <div className="flex justify-center lg:justify-start gap-x-6 sm:gap-x-8">
             {destinations.map((destination, index) => (
               <button
@@ -59,33 +63,49 @@ const DestinationPage = () => {
               </button>
             ))}
           </div>
-          <h2 className="text-[3.5rem] sm:text-[5rem] lg:text-[6.25rem] text-white">
+          <motion.h2
+            key={`header-${currentIndex}`}
+            {...animationAttributes}
+            className="text-[3.5rem] sm:text-[5rem] lg:text-[6.25rem] text-white"
+          >
             {destinations[currentIndex].name}
-          </h2>
-          <p className="max-w-[36rem] mx-auto">
+          </motion.h2>
+          <motion.p
+            key={`description-${currentIndex}`}
+            {...animationAttributes}
+            className="max-w-[36rem] mx-auto h-[6em]"
+          >
             {destinations[currentIndex].description}
-          </p>
+          </motion.p>
           <hr className="my-8 sm:mt-12 sm:mb-7"></hr>
-          <div className="flex max-sm:flex-col justify-center lg:justify-start gap-y-8 gap-x-16">
-            <div>
+          <div className="flex max-sm:flex-col justify-center lg:justify-start gap-y-8 lg:gap-x-16">
+            <div className="sm:w-2/5 lg:w-1/2">
               <h3 className="font-barlowCondensed tracking-widest text-sm pb-3">
                 Avg. Distance
               </h3>
-              <p className="font-bellefair text-2.5xl text-white uppercase">
+              <motion.p
+                key={`distance-${currentIndex}`}
+                {...animationAttributes}
+                className="font-bellefair text-2.5xl text-white uppercase"
+              >
                 {destinations[currentIndex].distance}
-              </p>
+              </motion.p>
             </div>
-            <div>
+            <div className="sm:w-2/5 lg:w-1/2">
               <h3 className="font-barlowCondensed tracking-widest text-sm pb-3">
                 Est. Travel Time
               </h3>
-              <p className="font-bellefair text-2.5xl text-white uppercase">
+              <motion.p
+                key={`travel-${currentIndex}`}
+                {...animationAttributes}
+                className="font-bellefair text-2.5xl text-white uppercase"
+              >
                 {destinations[currentIndex].travel}
-              </p>
+              </motion.p>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </PageWrapper>
   );
 };
