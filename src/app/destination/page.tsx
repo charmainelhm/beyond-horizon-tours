@@ -39,21 +39,30 @@ const DestinationPage = () => {
           ></Carousel>
         </div>
         <div className="max-lg:px-[var(--content-side-padding)] max-lg:mt-8 lg:w-2/5">
-          <div className="flex justify-center lg:justify-start gap-x-6 sm:gap-x-8">
+          <ul className="h-fit flex justify-center lg:justify-start gap-x-6 sm:gap-x-8">
             {destinations.map((destination, index) => (
-              <button
-                key={destination.name}
-                className={`border-b-[3px] font-barlowCondensed uppercase max-sm:text-sm tracking-widest ${
-                  index === currentIndex
-                    ? "text-white border-white"
-                    : "border-transparent hover:border-white/50 focus:border-white/50"
-                } pb-2 sm:pb-3`}
-                onClick={() => setCurrentIndex(index)}
-              >
-                {destination.name}
-              </button>
+              <li key={destination.name} className="h-fit relative">
+                {currentIndex === index && (
+                  <motion.span
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    className="inline-block absolute inset-0 border-b-[0.1875rem] border-white"
+                  ></motion.span>
+                )}
+                <button
+                  key={destination.name}
+                  className={`transition inline-block border-b-[3px] font-barlowCondensed uppercase max-sm:text-sm tracking-widest border-transparent  ${
+                    index === currentIndex
+                      ? "text-white"
+                      : "hover:border-white/50"
+                  } pb-2 sm:pb-3`}
+                  onClick={() => setCurrentIndex(index)}
+                >
+                  <span>{destination.name}</span>
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
           <motion.h2
             key={`header-${currentIndex}`}
             {...animationAttributes}
