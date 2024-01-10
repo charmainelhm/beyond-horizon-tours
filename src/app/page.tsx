@@ -24,7 +24,7 @@ export default function Home() {
         </div>
         <Link
           className="relative bg-white inline-grid place-content-center w-36 sm:w-56 lg:w-64 aspect-square rounded-full text-charcoal-900 sm:text-3xl font-bellefair uppercase before:transition-transform before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-white/20 focus:before:scale-150 hover:before:scale-150 before:z-[-1]]"
-          href=""
+          href="/destination"
         >
           Explore
         </Link>

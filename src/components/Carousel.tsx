@@ -25,6 +25,7 @@ interface CarouselProps {
    * Whether or not the carousel should loop
    */
   loop?: boolean;
+  axis?: "x" | "y";
   /**
    * For adding any custom classes to component
    */
@@ -55,12 +56,14 @@ const Carousel: React.FC<CarouselProps> = ({
   loop = false,
   className = "",
   setCurrentIndex,
+  axis = "x",
   scrollTo,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop,
     slidesToScroll,
     align: "start",
+    axis,
   });
 
   emblaApi && emblaApi.scrollTo(scrollTo);
@@ -82,7 +85,7 @@ const Carousel: React.FC<CarouselProps> = ({
       ref={emblaRef}
     >
       <div
-        className={`flex grow ${
+        className={`flex grow ${axis === "y" ? "flex-col" : ""} ${
           slidesGap ? SLIDES_GAP[slidesGap as keyof typeof SLIDES_GAP] : ""
         }`}
       >

@@ -37,6 +37,7 @@ const TechnologyPage = () => {
             setCurrentIndex={setCurrentIndex}
             className="h-full"
             slidesGap="sm"
+            axis="y"
           />
         </div>
         <div className="lg:w-[50%] flex flex-col lg:flex-row gap-y-8 lg:gap-x-[min(6%,5rem)]">
